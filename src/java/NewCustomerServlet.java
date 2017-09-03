@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -20,26 +21,38 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class NewCustomerServlet extends HttpServlet {
-@Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-
-        
-        String name = request.getParameter("FirstName");
-        String name2 = request.getParameter("LastName");
-        String phone = request.getParameter("PhoneNum");
-        String address = request.getParameter("UserAddress");
-        String city = request.getParameter("UserCity");
-        String state = request.getParameter("UserState");
-        String zip = request.getParameter("UserZip");
-        String email = request.getParameter("UserEmail");
-       
-        response.setStatus(response.SC_MOVED_TEMPORARILY);
-        response.setHeader("Location", "Success.html");
-    }
- 
   
+        String message;            
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String address = request.getParameter("address");
+        String city = request.getParameter("city");
+        String state = request.getParameter("state");
+        String zipCode = request.getParameter("zipCode");
+        String email = request.getParameter("email");
+
+        if (firstName.equals("") || lastName.equals("") || phoneNumber.equals("") || 
+                address.equals("") || city.equals("") || state.equals("") || 
+                zipCode.equals("")|| email.equals("")){
+            message = "Please enter all of the required information below.";
+            request.setAttribute("message", message);
+            request.getRequestDispatcher("New_customer.jsp").forward(request,
+                    response);
+            
+        }                 
+         else{
+            request.getRequestDispatcher("Success.html").forward(request, 
+                    response);      
+        }
+        
+    }
 }
+
+
+    
+   
