@@ -18,45 +18,49 @@
         <nav>
             <a href="./index.html">Home</a> |
             <a href="./Login.html">Sign In</a> |
-        </nav><br><br>
-        <form action= "AddNewCustomer">
+        </nav>
+         <p><i>${message}</i></p>
+        <form action="newCustomer" method="post">
+        <input type="hidden" name="action" value="signup">
+        <br>
             <table cellspacing="4" border="0">
                 <tr>
                     <td align="center">First Name:</td>
-                    <td><input type="text" name="FirstName"></td>
+                    <td><input type="text" name="firstName"></td>
                 </tr>
                 <tr>
                     <td align="center">Last Name:</td>
-                    <td><input type="text" name="LastName"></td>
+                    <td><input type="text" name="lastName"></td>
                 </tr>
                 <tr>
                     <td align="center">Phone:</td>
-                    <td><input type="text" name="PhoneNum"></td>
+                    <td><input type="text" name="phoneNumber"></td>
                 </tr>
                 <tr>
                     <td align="center">Address:</td>
-                    <td><input type="text" name="UserAddress"></td>
+                    <td><input type="text" name="address"></td>
                 </tr>
                 <tr>
                     <td align="center">City:</td>
-                    <td><input type="text" name="UserCity"></td>
+                    <td><input type="text" name="city"></td>
                 </tr>
                 <tr>
                     <td align="center">State:</td>
-                    <td><input type="text" name="UserState"></td>
+                    <td><input type="text" name="state"></td>
                 </tr>
                 <tr>
                     <td align="center">Zip Code:</td>
-                    <td><input type="text" name="UserZip"></td>
+                    <td><input type="text" name="zipCode"></td>
                 </tr>
                 <tr>
                     <td align="center">Email:</td>
-                    <td><input type="text" name="UserEmail"></td>
+                    <td><input type="text" name="email"></td>
                 </tr>
                 <tr>
                     <td align="center"></td>
-                    <td><br><input type="submit" value="Submit"></td>
+                    <td><br><input type="submit" name="signup" Value="Sign Up"></td>
                 </tr>
             </table>
+        </form>
     </body>
 </html>
