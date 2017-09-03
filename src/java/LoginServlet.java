@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
         String uname = request.getParameter("uname");
         String pass = request.getParameter("pass");
         
-        if (uname.equals("admin")&& pass.equals("admin"))
+        if (uname.equals("jsmith@toba.com")&& pass.equals("letmein"))
         {
             response.sendRedirect("Account_activity.html");
         }

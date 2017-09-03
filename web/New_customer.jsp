@@ -13,14 +13,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-      
-        <h1>Enter Your Information Below</h1>
-        <nav>
+
+        <nav><br>
             <a href="./index.html">Home</a> |
             <a href="./Login.html">Sign In</a> |
         </nav>
+        <h3>Enter your information below:</h3>
          <p><i>${message}</i></p>
-        <form action="newCustomer" method="post">
+        <form action="signUp" method="post">
         <input type="hidden" name="action" value="signup">
         <br>
             <table cellspacing="4" border="0">

@@ -18,7 +18,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NewCustomerServlet</servlet-name>
-        <url-pattern>/newCustomer</url-pattern>
+        <url-pattern>/signUp</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TransactionServlet</servlet-name>
