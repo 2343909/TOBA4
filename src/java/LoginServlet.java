@@ -33,11 +33,11 @@ public class LoginServlet extends HttpServlet {
         
         if (uname.equals("jsmith@toba.com")&& pass.equals("letmein"))
         {
-            response.sendRedirect("Account_activity.html");
+            response.sendRedirect("Account_activity.jsp");
         }
         else 
         {
-            response.sendRedirect("Login_failure.html");
+            response.sendRedirect("Login_failure.jsp");
         }
            
     }
