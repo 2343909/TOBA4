@@ -1,6 +1,8 @@
+import bussines.User;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import bussines.UserDB;
 
 /**
  *
@@ -43,6 +45,7 @@ public class NewCustomerServlet extends HttpServlet {
             else {
                 message = null;
                 url = "/Success.jsp";
+                UserDB.insert(user);
             }
             
             HttpSession session = request.getSession();

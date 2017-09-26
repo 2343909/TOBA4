@@ -18,12 +18,8 @@
         <h3>Account Created Successfully</h3>
         
            <p>Here is the information that you entered:</p>
-           <table>
-           <tr> 
-           <p>First Name: ${user["firstName"]}</p>
-           </tr>
-           </table>
-           
+            <label>First Name:</label>
+            <span>${user.firstName}</span><br>        
             <label>Last Name:</label>
             <span>${user.lastName}</span><br>
             <label>Phone Number:</label>

@@ -14,7 +14,7 @@
     </servlet>
     <servlet>
         <servlet-name>User</servlet-name>
-        <servlet-class>User</servlet-class>
+        <servlet-class>bussines.User</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -32,6 +32,42 @@
         <servlet-name>User</servlet-name>
         <url-pattern>/User</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UserDB</servlet-name>
+        <servlet-class>bussines.UserDB</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConnectionPool</servlet-name>
+        <servlet-class>bussines.ConnectionPool</servlet-class>
+    </servlet>
+        <servlet>
+        <servlet-name>DBUtil</servlet-name>
+        <servlet-class>bussines.DBUtil</servlet-class>
+    </servlet>
+        <servlet>
+        <servlet-name>SQLUtil</servlet-name>
+        <servlet-class>bussines.SQLUtil</servlet-class>
+    </servlet>        
+    <servlet-mapping>
+        <servlet-name>UserDB</servlet-name>
+        <url-pattern>/UserDB</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConnectionPool</servlet-name>
+        <url-pattern>/ConnectionPool</url-pattern>
+    </servlet-mapping>    
+    <servlet-mapping>
+        <servlet-name>DBUtil</servlet-name>
+        <url-pattern>/DBUtil</url-pattern>
+    </servlet-mapping>    
+    <servlet-mapping>
+        <servlet-name>SQLUtil</servlet-name>
+        <url-pattern>/SQLUtil</url-pattern>
+    </servlet-mapping>    
+    
+    
+    
+    
     <session-config>
         <session-timeout>
             30
