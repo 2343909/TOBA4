@@ -6,17 +6,20 @@ package bussines;
  * and open the template in the editor.
  */
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class User implements Serializable {
-
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userID;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -55,6 +58,15 @@ public class User implements Serializable {
         this.username = username;
         this.password = password;
     }
+    
+    public Long getUserID() {
+        return userID;
+    }
+    
+    public void setUserID(long userID) {
+        this.userID = userID;
+    }    
+    
     
     public String getFirstName() {
         return firstName;
