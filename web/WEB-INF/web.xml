@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+     <resource-ref>
+        <description>MySQL Datasource example</description>
+        <res-ref-name>jdbc/toba4</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>   
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>LoginServlet</servlet-class>
@@ -15,6 +21,10 @@
     <servlet>
         <servlet-name>User</servlet-name>
         <servlet-class>bussines.User</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportsServlet</servlet-name>
+        <servlet-class>ReportsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -40,14 +50,14 @@
         <servlet-name>ConnectionPool</servlet-name>
         <servlet-class>bussines.ConnectionPool</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>DBUtil</servlet-name>
         <servlet-class>bussines.DBUtil</servlet-class>
     </servlet>
-        <servlet>
+    <servlet>
         <servlet-name>SQLUtil</servlet-name>
         <servlet-class>bussines.SQLUtil</servlet-class>
-    </servlet>        
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserDB</servlet-name>
         <url-pattern>/UserDB</url-pattern>
@@ -55,19 +65,19 @@
     <servlet-mapping>
         <servlet-name>ConnectionPool</servlet-name>
         <url-pattern>/ConnectionPool</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DBUtil</servlet-name>
         <url-pattern>/DBUtil</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SQLUtil</servlet-name>
         <url-pattern>/SQLUtil</url-pattern>
-    </servlet-mapping>    
-    
-    
-    
-    
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportsServlet</servlet-name>
+        <url-pattern>/ReportsServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -85,4 +95,47 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    
+    
+        <!-- Define two security roles -->
+    <security-role>
+        <description>customer service employees</description>
+        <role-name>service</role-name>
+    </security-role>
+    <security-role>
+        <description>programmers</description>
+        <role-name>programmer</role-name>
+    </security-role>
+
+    <security-constraint>
+        <!-- Restrict access to the URLs in the admin directory -->
+        <web-resource-collection>
+            <web-resource-name>Admin</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+
+        <!-- Authorize the service and programmer roles -->
+        <auth-constraint>
+            <role-name>service</role-name>
+            <role-name>programmer</role-name>
+        </auth-constraint>
+        
+        <!-- Forces a secure connection - remove comments to enable -->
+        <!--
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+        -->        
+    </security-constraint>
+
+    <!-- Use form-based authentication to provide access -->
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/admin/login.html</form-login-page>
+            <form-error-page>/admin/login_error.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    
+
 </web-app>
